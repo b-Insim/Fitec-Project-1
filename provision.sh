@@ -4,6 +4,9 @@ set -e
 set -u
 
 HOSTNAME="$(hostname)"
+KEY_DIR=/vagrant/ssh_keys
+VAGRANT_HOME=/home/vagrant
+ROOT_HOME=/root
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -21,32 +24,33 @@ apt-get install -y \
 
 if [ "$HOSTNAME" = "control" ]; then
 	apt-get install -y \
-		ansible
+		ansible \
+    make
 	# J'ajoute les deux clefs sur le noeud de controle
-	mkdir -p /root/.ssh
-	cp /vagrant/ssh_keys/projet_rsa /home/vagrant/.ssh/projet_rsa
-	cp /vagrant/ssh_keys/projet_rsa.pub /home/vagrant/.ssh/projet_rsa.pub
-	cp /vagrant/ssh_keys/github_rsa /home/vagrant/.ssh/github_rsa
-	cp /vagrant/ssh_keys/github_rsa.pub /home/vagrant/.ssh/github_rsa.pub
-	chmod 0600 /home/vagrant/.ssh/*_rsa # ICI
-	chown -R vagrant:vagrant /home/vagrant/.ssh
+	mkdir -p $VAGRANT_HOME/.ssh
+	cp $KEY_DIR/projet_rsa $VAGRANT_HOME/.ssh/projet_rsa
+	cp $KEY_DIR/projet_rsa.pub $VAGRANT_HOME/.ssh/projet_rsa.pub
+	cp $KEY_DIR/github_rsa $VAGRANT_HOME/.ssh/github_rsa
+	cp $KEY_DIR/github_rsa.pub $VAGRANT_HOME/.ssh/github_rsa.pub
 
-  cat /home/vagrant/.ssh/config <<-MARK
-    Host github.com
+  cat > $VAGRANT_HOME/.ssh/config <<MARK
+Host github.com
       User git
       IdentityFile ~/.ssh/github_rsa
 
-    Host server*
+Host server*
       User root
       IdentityFile ~/.ssh/project_rsa
-  MARK
+MARK
 
-  chmod 0644 /home/vagrant/.ssh/config
+  chown -R vagrant:vagrant $VAGRANT_HOME/.ssh
+  chmod 0600 $VAGRANT_HOME/.ssh/*_rsa
+  chmod 0644 $VAGRANT_HOME/.ssh/config
 
 	sed -i \
 		-e '/## BEGIN PROVISION/,/## END PROVISION/d' \
-		/home/vagrant/.bashrc
-	cat >> /home/vagrant/.bashrc <<-MARK
+		$VAGRANT_HOME/.bashrc
+	cat >> $VAGRANT_HOME/.bashrc <<-MARK
 	## BEGIN PROVISION
 	eval \$(ssh-agent -s)
 	ssh-add ~/.ssh/projet_rsa
@@ -66,17 +70,17 @@ cat >> /etc/hosts <<MARK
 MARK
 
 # J'autorise la clef sur tous les serveurs
-mkdir -p /root/.ssh
-cat /vagrant/projet_rsa.pub >> /root/.ssh/authorized_keys
+mkdir -p $ROOT_HOME/.ssh
+cat $KEY_DIR/projet_rsa.pub >> $ROOT_HOME/.ssh/authorized_keys
 
 # Je vire les duplicata (potentiellement gênant pour SSH)
-sort -u /root/.ssh/authorized_keys > /root/.ssh/authorized_keys.tmp
-mv /root/.ssh/authorized_keys.tmp /root/.ssh/authorized_keys
+sort -u $ROOT_HOME/.ssh/authorized_keys > $ROOT_HOME/.ssh/authorized_keys.tmp
+mv $ROOT_HOME/.ssh/authorized_keys.tmp $ROOT_HOME/.ssh/authorized_keys
 
 # Je corrige les permissions
-touch /root/.ssh/config
-chmod 0600 /root/.ssh/*
-chmod 0644 /root/.ssh/config
-chmod 0700 /root/.ssh
+touch $ROOT_HOME/.ssh/config
+chmod 0600 $ROOT_HOME/.ssh/*
+chmod 0644 $ROOT_HOME/.ssh/config
+chmod 0700 $ROOT_HOME/.ssh
 
 echo "SUCCESS."
