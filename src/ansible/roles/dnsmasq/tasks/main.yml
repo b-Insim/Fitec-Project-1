@@ -15,7 +15,7 @@
 - name: redemarrer le redemarrer
   service:
     name: dnsmasq
-    state: started
+    state: restarted
     enabled: yes
 
 
