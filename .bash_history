@@ -234,3 +234,18 @@ clear
 cd 
 ls
 exit 
+clear 
+ls
+cd src/ansible/roles/
+ls
+cd 
+ls
+git status
+git add src/ansible/ .
+git commit -m "my first real commit"
+git push -u origin master 
+git status
+ls
+git add  .
+git  commit -m "first"
+git log
