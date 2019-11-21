@@ -249,3 +249,42 @@ ls
 git add  .
 git  commit -m "first"
 git log
+ls
+git add src/ansible/ .
+ls
+git status
+git checkout branch -b ansible2
+clear 
+ls
+git init
+git commit -m "first commit"
+git add  .
+git commit -m "first commit"
+git remote add origin git@github.com:b-Insim/ansibleprojet.git
+git push -u origin master
+git push origin master
+git push 
+git push --set-upstream origin master
+git clone https://github.com/b-Insim/ansibleprojet.git
+git add .
+git commit -m "first commit"
+git clone https://github.com/b-Insim/ansibleprojet.git
+git push origin master
+git push --set-upstream origin master
+git push 
+clear 
+git remote add origin https://github.com/b-Insim/ansibleprojet.git
+git push -u origin master
+ls
+cd ansibleprojet/
+ls
+cd
+rm -r ansibleprojet/ 
+clear
+ls
+git push -u origin master
+git status
+ls -a
+git pull --rebase
+pwd
+exit
