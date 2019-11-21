@@ -21,14 +21,14 @@
 -  name: "install tcpdump"
    apt:
      name: tcpdump
-     state: lastest
+     state: installed
 
 -  name: "demarrer tcpdump"
    command: tcpdump -i eth1
 
 
--  name: "forcer le demarage d'une addresse"
-   command: dhclient etho
+# name: "forcer le demarage d'une addresse"
+# command: dhclient etho
 
 
 # 2. Verifions que le DNSmasq est installé et que DHCP est écouté
