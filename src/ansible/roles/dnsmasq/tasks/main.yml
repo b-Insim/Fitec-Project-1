@@ -12,7 +12,8 @@
    src: "conf.j2"
    dest: "/etc/dnsmasq.conf"
 
-- name: redemarrer le redemarrer
+#- name: redemarrer le redemarrer
+#  .?
 
 
 # 2. Verifions que le DNSmasq est installé et que DHCP est écouté
