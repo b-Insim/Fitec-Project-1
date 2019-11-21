@@ -24,10 +24,24 @@ if [ "$HOSTNAME" = "control" ]; then
 		ansible
 	# J'ajoute les deux clefs sur le noeud de controle
 	mkdir -p /root/.ssh
-	cp /vagrant/projet_rsa /home/vagrant/.ssh/projet_rsa
-	cp /vagrant/projet_rsa.pub /home/vagrant/.ssh/projet_rsa.pub
+	cp /vagrant/ssh_keys/projet_rsa /home/vagrant/.ssh/projet_rsa
+	cp /vagrant/ssh_keys/projet_rsa.pub /home/vagrant/.ssh/projet_rsa.pub
+	cp /vagrant/ssh_keys/github_rsa /home/vagrant/.ssh/github_rsa
+	cp /vagrant/ssh_keys/github_rsa.pub /home/vagrant/.ssh/github_rsa.pub
 	chmod 0600 /home/vagrant/.ssh/*_rsa # ICI
 	chown -R vagrant:vagrant /home/vagrant/.ssh
+
+  cat /home/vagrant/.ssh/config <<-MARK
+    Host github.com
+      User git
+      IdentityFile ~/.ssh/github_rsa
+
+    Host server*
+      User root
+      IdentityFile ~/.ssh/project_rsa
+  MARK
+
+  chmod 0644 /home/vagrant/.ssh/config
 
 	sed -i \
 		-e '/## BEGIN PROVISION/,/## END PROVISION/d' \
@@ -36,6 +50,7 @@ if [ "$HOSTNAME" = "control" ]; then
 	## BEGIN PROVISION
 	eval \$(ssh-agent -s)
 	ssh-add ~/.ssh/projet_rsa
+	ssh-add ~/.ssh/github_rsa
 	## END PROVISION
 	MARK
 fi
@@ -65,4 +80,3 @@ chmod 0644 /root/.ssh/config
 chmod 0700 /root/.ssh
 
 echo "SUCCESS."
-

@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Mettre en place un cache pour APT
   # config.vm.synced_folder 'v-cache', '/var/cache/apt'
- 
+
   config.vm.define 'control' do |machine|
     machine.vm.hostname = 'control'
     machine.vm.network "private_network", ip: "192.168.50.250" # <<<< Corriger ICI
@@ -23,10 +23,10 @@ Vagrant.configure("2") do |config|
   # 192.168.50.30
   3.times do |idx|
     config.vm.define "server#{idx}" do |machine|
-      machine.vm.hostname = "server#{idx}" 
+      machine.vm.hostname = "server#{idx}"
       machine.vm.network "private_network", type: "dhcp" # <<<<  Corriger ICI
       if idx == 0
-        machine.vm.network "private_network", ip: "192.168.50.#{idx * 10 + 10}" 
+        machine.vm.network "private_network", ip: "192.168.50.#{idx * 10 + 10}"
         machine.vm.network "forwarded_port", guest: 80, host: 1080
         machine.vm.network "forwarded_port", guest: 8080, host: 8080
       end
@@ -36,4 +36,3 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "provision.sh"
   #config.vm.provision "shell", path: "provision1.sh"
 end
-
