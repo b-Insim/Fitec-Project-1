@@ -21,7 +21,7 @@
 -  name: "install tcpdump"
    apt:
      name: tcpdump
-     state: installed
+     state: present
 
 -  name: "demarrer tcpdump"
    command: tcpdump -i eth1
