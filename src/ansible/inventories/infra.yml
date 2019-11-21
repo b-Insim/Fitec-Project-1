@@ -1,0 +1,16 @@
+---
+all:
+  hosts:
+    server0:
+  children:
+    dns:
+      hosts:
+        server0:
+    haproxy:
+      hosts:
+        server0:
+    wordpress:
+      hosts:
+        server1:
+        server2:
+

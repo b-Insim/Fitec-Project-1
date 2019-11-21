@@ -1,0 +1,9 @@
+---
+- hosts: dns
+  tasks:
+    - name: Install DNSmasq
+      import_role:
+        name: dnsmasq
+      vars:
+
+
