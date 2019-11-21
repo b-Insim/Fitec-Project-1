@@ -18,6 +18,15 @@
     state: restarted
     enabled: yes
 
+-  name: "install tcpdump"
+   apt:
+     name: tcpdump
+     state: lastest
+
+-  name: "demarrer tcpdump"
+   command: tcpdump -i eth1
+   command: dhclient etho
+
 
 # 2. Verifions que le DNSmasq est installé et que DHCP est écouté
 # - name: "vérification DHCP"
