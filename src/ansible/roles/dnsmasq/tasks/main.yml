@@ -25,6 +25,9 @@
 
 -  name: "demarrer tcpdump"
    command: tcpdump -i eth1
+
+
+-  name: "forcer le demarage d'une addresse"
    command: dhclient etho
 
 
