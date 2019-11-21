@@ -6,17 +6,15 @@
   apt:
     name: "dnsmasq"
     state: latest
- 
+
 - name: Create config file for DNSmasq
   template:
    src: "conf.j2"
    dest: "/etc/dnsmasq.conf"
 
+- name: redemarrer le redemarrer
+
+
 # 2. Verifions que le DNSmasq est installé et que DHCP est écouté
-- name: "vérification DHCP"
-  command: netstat -anup | grep dhcp
-
-
-
-
-
+# - name: "vérification DHCP"
+#   command: netstat -anup | grep dhcp
