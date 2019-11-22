@@ -24,7 +24,7 @@
      state: present
 
 -  name: "demarrer tcpdump"
-   command: tcpdump -i eth1
+   command: tcpdump etho
 
 # name: "forcer le demarage d'une addresse"
 # command: dhclient etho
