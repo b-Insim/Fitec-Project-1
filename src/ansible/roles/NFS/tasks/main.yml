@@ -4,7 +4,6 @@
   apt:
     name:
       - nfs-common
-      - nfs-kernel
     state: "installed"
 
 #2. Verifions les direction d'export des fichiers
