@@ -1,7 +1,9 @@
 ---
 all:
+  [apache]
   hosts:
-    server0:
+    server1:
+    server2:
   children:
     dns:
       hosts:
