@@ -15,7 +15,7 @@
 #3. Cette tâche installe PHP7 et ses extensions
   - name: "install php70 packages"
     apt:
-            name: "php" #php-mysql,php-xml,php-mbstring,php-mcrypt,php-gd,php-intl"
+            name: "php7.3" #php-mysql,php-xml,php-mbstring,php-mcrypt,php-gd,php-intl"
             state: latest
             #enablerepo: "remi-php70"
             #changed_when: yes
