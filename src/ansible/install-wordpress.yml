@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+---
+>>>>>>> aca55b7c26d8aa2bbea45e6505303750fe6702e7
 - name: "wordpress db configuration"
   hosts: db
   gather_facts: no
