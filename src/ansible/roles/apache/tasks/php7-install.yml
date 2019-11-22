@@ -19,4 +19,4 @@
             state: latest
             #enablerepo: "remi-php70"
             #changed_when: yes
-            notify: [ "apache2 restart" ]
+            #notify: [ "apache2 restart" ]
