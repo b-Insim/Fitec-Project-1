@@ -14,17 +14,3 @@ dhcp-option=23,64
 
 # addresse IP FIXE POUR LA machine
 dhcp-host=00:40:F4:6c:43:AF ,machinefixe,192.168.50.10
-
-
-
-# configuration DNS
-
-dnsmasq__dns_records:
-
-  - machine: 'server0'
-    target: 'devops.com'
-    priority: 10
-
-  - machine: 'server1'
-    target: 'devsec.com'
-    priority: 20
