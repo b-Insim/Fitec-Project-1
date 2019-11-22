@@ -1,5 +1,4 @@
----
-all:
+
   [apache]
   hosts:
     server1:
@@ -8,16 +7,16 @@ all:
     dns:
       hosts:
         server0:
-    haproxy:
+    [haproxy]
       hosts:
         server0:
-    wordpress:
+    [wordpress]
       hosts:
         server1:
         server2:
-    mariadb:
+    [mariadb]
       hosts:
         server3:
-    nfsserver:
+    [nfsserver]
       hosts:
         server4:
