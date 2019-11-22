@@ -1,0 +1,28 @@
+---
+
+# nom de la base de données
+  wordpress_db_name: "wordpress"
+
+# nom de l’utilisateur de la base de données et son mot de passe
+  wordpress_db_user: "wordpress"
+
+
+# nom et mot de passe de l’administrateur wordpress
+ wordpress_admin_user: "admin"
+
+
+# nom du wordpress et son titre
+  wordpress_name: "wordpress"
+  wordpress_title: "ELS"
+
+# l’emplacement du répertoire d'installation de wordpress
+  wordpress_directory: "/var/www/html/{{wordpress_name}}"
+
+# répertoire de maintenance de wordpress
+  wordpress_maintenance_directory: "{{wordpress_directory}}/maintenance"
+
+# Definie le premier node du groupe mariadb
+  wordpress_db_host: "{{groups.db.0}}"
+
+# l’url des sources wordpress
+  wordpress_archive_url: "https://wordpress.org/latest.tar.gz"

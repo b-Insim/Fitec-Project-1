@@ -1,0 +1,53 @@
+---
+
+#1. Création du repertoire pour l’installation des fichiers wordpress
+  - name: "wordpress directory"
+    file:
+            path: "{{wordpress_directory}}"
+            owner: "apache"
+            group: "apache2"
+            state: directory
+
+#2. Décompresse le fichier source archive wordpress et le formate sans extension
+  - name: "uncompress wordpress archive"
+    unarchive:
+            src: "{{wordpress_archive_url}}"
+            dest: "{{wordpress_directory}}"
+            owner: "apache2"
+            group: "apache2"
+            remote_src: yes
+
+# supprime wordpress-1.xx.x/ du chemin
+  extra_opts: --transform=s/wordpress-[0-9\.]*\///
+
+#3. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de configuration si le fichier localsetting.php n’existe pas
+  - name: "wordpress configuration"
+    become: yes
+    become_user: "apache"
+    args:
+            creates: "{{wordpress_directory}}/LocalSettings.php"
+            chdir: "{{wordpress_maintenance_directory}}"
+            command:
+                    php install.php --scriptpath /{{wordpress_name}}
+                    --dbname wordpress --lang fr
+                    --dbuser {{wordpress_db_user}}
+                    --dbpass {{wordpress_db_password}}
+                    --pass {{wordpress_admin_password}}
+                    --dbserver {{wordpress_db_host}}  
+                    {{wordpress_title}} {{wordpress_admin_user}}
+            run_once: yes
+            delegate_to: "{{item}}"
+            with_items: "{{groups.apache}}"
+
+#4. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de mise à jour de la baseune seule fois    
+  - name: "wordpress db update"
+    become: yes
+    become_user: "apache"
+    command:
+            php update.php --quick
+    args:
+            chdir: "{{wordpress_maintenance_directory}}"
+            # La mise à jour à besoin d'être lancée une seule fois
+            run_once: yes
+            register: resultat
+            changed_when: "' ...done.' in resultat.stdout"

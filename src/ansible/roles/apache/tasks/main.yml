@@ -1,0 +1,19 @@
+---
+
+#1. Cette tâche permet d’installer Apache2 (server1) à l’aide du module apt
+  - name: "apache installation"
+    apt:
+            name: "apache2"
+            state: "installed"
+
+#2. Cette tâche active le service Apache2
+  - name: "apache service activation"
+    service:
+            name: "server1"
+            state: "started"
+            enabled: yes
+
+#3. Cette tâche fait appel à un autre fichier de configuration pour installer PHP. Elle est exécutée uniquement si la variable php_install est à vraie (par défaut, elle est à faux)
+  - name: "install php7 packages"
+    include: "php7-install.yml"
+    when: php_install|default(False)|bool

@@ -13,4 +13,9 @@ all:
       hosts:
         server1:
         server2:
-
+    mariadb:
+      hosts:
+        server3:
+    nfsserver:
+      hosts:
+        server4:
