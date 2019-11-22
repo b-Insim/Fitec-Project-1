@@ -4,7 +4,7 @@
   apt:
     name:
       - nfs-common
-    state: "installed"
+    state: "present"
 
 #2. Verifions les direction d'export des fichiers
 - name: Ensure directories to export exist
