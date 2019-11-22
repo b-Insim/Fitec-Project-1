@@ -2,7 +2,7 @@
 #1. Cette tâche permet d’installer haproxy (server0) à l’aide du module apt
 - name: "haproxy installation"
   apt:
-name: "server0"
+name: "haproxy"
 state: "installed"
 
 #2. Verifions que haproxy fonctionne correctement
@@ -17,6 +17,6 @@ lineinfile:
 #3. Cette tâche active le service Apache
 - name: "haproxy service activation"
   service:
-name: "server0"
+name: "haproxy"
 state: "started"
 enabled: yes
