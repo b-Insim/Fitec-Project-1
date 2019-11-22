@@ -1,11 +1,20 @@
 ---
 #1. Cette tâche permet d’installer haproxy (server0) à l’aide du module apt
 - name: "haproxy installation"
-  yum:
+  apt:
 name: "server0"
 state: "installed"
 
-#2. Cette tâche active le service Apache
+#2. Verifions que haproxy fonctionne correctement
+- name: "Ensure HAProxy is here"
+lineinfile:
+  dest: /etc/default/haproxy
+  regexp: "^ENABLED.+$"
+  line: "ENABLED=1"
+  state: present
+  when: ansible_os_family == 'Debian'
+
+#3. Cette tâche active le service Apache
 - name: "haproxy service activation"
   service:
 name: "server0"
