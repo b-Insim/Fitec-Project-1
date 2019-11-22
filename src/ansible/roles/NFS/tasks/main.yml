@@ -2,7 +2,7 @@
 #1. Cette tâche permet d’installer NFS (server4) à l’aide du module apt
 - name: "NFS installation"
   apt:
-name: "server4"
+name: "nfsserver"
 state: "installed"
 
 #2. Verifions que nfsserver fonctionne correctement
