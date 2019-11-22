@@ -1,0 +1,13 @@
+- name: "wordpress db configuration"
+  hosts: db
+  gather_facts: no
+  tags: [ "mariadb", "mysql" ]
+  roles:
+    - role: "wordpres/confdb"
+
+- name: "wordpress apache configuration"
+  hosts: apache
+  gather_facts: no
+  tags: "apache2"
+  roles:
+    - role: "wordpress/confapache"
