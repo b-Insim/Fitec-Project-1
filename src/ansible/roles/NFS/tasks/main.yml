@@ -15,8 +15,8 @@ lineinfile:
   when: ansible_os_family == 'Debian'
 
 #3. Cette tâche active le service nfsserver
-- name: "haproxy service activation"
+- name: "nfsserverservice activation"
   service:
-name: "haproxy"
+name: "nfsserver"
 state: "started"
 enabled: yes
