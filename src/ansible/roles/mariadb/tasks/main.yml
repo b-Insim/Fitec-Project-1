@@ -3,7 +3,7 @@
 # Installation des paquets mariadb serveur et son extension Python
 - name: "mariadb-server installation"
   apt:
-    name:  "mariadb-server,MySQL-python"
+    name:  "mariadb-server" #MySQL-python"
     state: "installed"
 
 # Active le service MariaDB
