@@ -1,0 +1,13 @@
+---
+#1. Cette tâche permet d’installer haproxy (server0) à l’aide du module apt
+- name: "haproxy installation"
+  yum:
+name: "server0"
+state: "installed"
+
+#2. Cette tâche active le service Apache
+- name: "haproxy service activation"
+  service:
+name: "server0"
+state: "started"
+enabled: yes
