@@ -4,7 +4,7 @@
 - name: "mariadb-server installation"
   apt:
     name:  "mariadb-server" #MySQL-python"
-    state: "installed"
+    state: "present"
 
 # Active le service MariaDB
 - name: "start mariadb service"
