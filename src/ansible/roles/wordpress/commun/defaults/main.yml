@@ -1,6 +1,6 @@
 ---
 
-# nom de la base de données
+# nom de la base de donnees
   wordpress_db_name: "wordpress"
 
 # nom de l’utilisateur de la base de données et son mot de passe
