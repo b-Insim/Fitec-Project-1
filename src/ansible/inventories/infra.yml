@@ -1,22 +1,24 @@
+server0 ansible_user=root
+server1 ansible_user=root
+server2 ansible_user=root
+server3 ansible_user=root
+server4 ansible_user=root
+[apache]
+server1
+server2
 
-  [apache]
-  hosts:
-    server1:
-    server2:
-  children:
-    dns:
-      hosts:
-        server0:
-    [haproxy]
-      hosts:
-        server0:
-    [wordpress]
-      hosts:
-        server1:
-        server2:
-    [mariadb]
-      hosts:
-        server3:
-    [nfsserver]
-      hosts:
-        server4:
+[dns]
+server0
+
+[haproxy]
+server0
+
+[wordpress]
+server1
+server2
+
+[mariadb]
+server3
+
+[nfsserver]
+server4
