@@ -1,2 +1,4 @@
 ssh_keys
 .vagrant
+.ssh
+.vim
