@@ -4,7 +4,7 @@
   - name: "apache installation"
     apt:
             name: "apache2"
-            state: "installed"
+            state: "present"
 
 #2. Cette tâche active le service Apache2
   - name: "apache service activation"
