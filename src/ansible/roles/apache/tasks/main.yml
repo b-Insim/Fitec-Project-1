@@ -9,7 +9,7 @@
 #2. Cette tâche active le service Apache2
   - name: "apache service activation"
     service:
-            name: "server1"
+            name: "apache2"
             state: "started"
             enabled: yes
 
