@@ -1,16 +1,16 @@
 global
   log /dev/log  local0
   log /dev/log  local1 notice
-{% if wordpress_socket != '' %}
-  stats socket {{ wordpress_socket }} level admin
+{% if haproxy_socket != '' %}
+  stats socket {{ haproxy_socket }} level admin
 {% endif %}
-{% if wordpress_chroot != '' %}
-  chroot {{ wordpress_chroot }}
+{% if haproxy_chroot != '' %}
+  chroot {{ haproxy_chroot }}
 {% endif %}
-  user {{ wordpress_user }}
-  group {{ wordpress_group }}
+  user {{ haproxy_user }}
+  group {{ haproxy_group }}
   daemon
-{% for global_var in wordpress_global_vars %}
+{% for global_var in haproxy_global_vars %}
   {{ global_var }}
 {% endfor %}
 
