@@ -1,0 +1,22 @@
+---
+#1. Cette tâche permet d’installer NFS (server4) à l’aide du module apt
+- name: "NFS installation"
+  apt:
+name: "server4"
+state: "installed"
+
+#2. Verifions que nfsserver fonctionne correctement
+- name: "Ensure nfsserver is here"
+lineinfile:
+  dest: /etc/default/haproxy
+  regexp: "^ENABLED.+$"
+  line: "ENABLED=1"
+  state: present
+  when: ansible_os_family == 'Debian'
+
+#3. Cette tâche active le service nfsserver
+- name: "haproxy service activation"
+  service:
+name: "haproxy"
+state: "started"
+enabled: yes
