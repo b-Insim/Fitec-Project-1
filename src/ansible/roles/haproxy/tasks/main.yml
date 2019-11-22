@@ -3,7 +3,7 @@
 - name: "haproxy installation"
   apt:
     name: "haproxy"
-    state: "installed"
+    state: "present"
 
 #2. Verifions que haproxy fonctionne correctement
 #- name: "Ensure HAProxy is here"
