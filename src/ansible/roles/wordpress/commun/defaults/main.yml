@@ -8,7 +8,7 @@
 
 
 # nom et mot de passe de l’administrateur wordpress
- wordpress_admin_user: "admin"
+  wordpress_admin_user: "admin"
 
 
 # nom du wordpress et son titre
@@ -22,7 +22,7 @@
   wordpress_maintenance_directory: "{{wordpress_directory}}/maintenance"
 
 # Definie le premier node du groupe mariadb
-  wordpress_db_host: "{{groups.db.0}}"
+  wordpress_db_host: "{{groups.mariadb.0}}"
 
 # l’url des sources wordpress
   wordpress_archive_url: "https://wordpress.org/latest.tar.gz"
