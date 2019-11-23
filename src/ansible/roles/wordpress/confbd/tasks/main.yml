@@ -6,11 +6,13 @@
             state: present
 
 #2. Création d’un accès utilisateur et attribution des privilèges sur la base wordpress
-#  - name: "wordpress user+privileges"
-#    mysql_user:
-#            name: "{{wordpress_db_user}}"
-#            password: "{{wordpress_db_password}}"
-#            priv: "{{wordpress_db_name}}.*:ALL"
-#            host: "{{item}}"
-#            state: present
-#            with_items: "{{groups.apache}}"
+  
+  - name: "wordpress user+privileges"
+    mysql_user:
+            name: "{{wordpress_db_user}}"
+            password: "{{wordpress_db_password}}"
+            priv: "{{wordpress_db_name}}.*:ALL"
+            host: "{{item}}"
+            state: present
+    with_items:
+            - "{{groups.apache}}"

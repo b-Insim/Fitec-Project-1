@@ -5,10 +5,12 @@
 
 # nom de l’utilisateur de la base de données et son mot de passe
   wordpress_db_user: "wordpress"
+  wordpress_db_password: "wordpress"
 
 
 # nom et mot de passe de l’administrateur wordpress
   wordpress_admin_user: "admin"
+  wordpress_admin_password: "wordpress"
 
 
 # nom du wordpress et son titre
