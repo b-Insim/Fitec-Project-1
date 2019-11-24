@@ -21,10 +21,17 @@
   wordpress_directory: "/var/www/html/{{wordpress_name}}"
 
 # répertoire de maintenance de wordpress
-  wordpress_maintenance_directory: "{{wordpress_directory}}/maintenance"
+  wordpress_maintenance_directory: "{{wordpress_directory}}/wordpress/wp-admin"
 
 # Definie le premier node du groupe mariadb
   wordpress_db_host: "{{groups.mariadb.0}}"
 
 # l’url des sources wordpress
   wordpress_archive_url: "https://wordpress.org/latest.tar.gz"
+
+# definition du haproxy de wordpress
+  haproxy_wordpress_user: "wordpress"
+  haproxy_wordpress_group: "wordpress"
+
+
+

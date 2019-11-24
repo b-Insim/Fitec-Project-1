@@ -6,13 +6,14 @@
     state: "present"
 
 #2. Verifions que haproxy fonctionne correctement
-#- name: "Ensure HAProxy is here"
-#lineinfile:
-#  dest: /etc/default/haproxy
-#  regexp: "^ENABLED.+$"
-#  line: "ENABLED=1"
-#  state: present
-#  when: ansible_os_family == 'Debian'
+
+- name: "verifions que HAProxy est la!"
+  lineinfile:
+          dest: /etc/default/haproxy
+          regexp: "^ENABLED.+$"
+          line: "ENABLED=1"
+          state: present
+          # when: ansible_os_family == 'Debian'
 
 #3. Cette tâche active le service Apache
 - name: "haproxy service activation"

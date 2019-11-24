@@ -12,3 +12,11 @@
   tags: "apache"
   roles:
           - role: "wordpress/confapache"
+
+
+- name: "wordpress haproxy configuration"
+  hosts: haproxy
+  gather_facts: no
+  tags: "haproxy"
+  roles:
+          - role: "wordpress/confhaproxy"

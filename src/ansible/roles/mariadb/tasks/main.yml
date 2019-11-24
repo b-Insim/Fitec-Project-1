@@ -6,6 +6,7 @@
     name:
             - mariadb-server
             - python-mysqldb
+            - mariadb-client
     state: "present"
 
 # Active le service MariaDB

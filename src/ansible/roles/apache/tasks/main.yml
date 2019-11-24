@@ -3,7 +3,9 @@
 #1. Cette tâche permet d’installer Apache2 (server1) à l’aide du module apt
   - name: "apache installation"
     apt:
-            name: "apache2"
+            name:
+                    - apache2
+                    - apache2-utils
             state: "present"
 
 #2. Cette tâche active le service Apache2

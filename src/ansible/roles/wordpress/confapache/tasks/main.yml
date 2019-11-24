@@ -27,7 +27,7 @@
     become: yes
     become_user: "root"
     args:
-            creates: "{{wordpress_directory}}/LocalSettings.php"
+            creates: "{{wordpress_directory}}/wordpress/wp-settings.php"
             chdir: "{{wordpress_maintenance_directory}}"
     command: php install.php \
              --scriptpath /{{wordpress_name}} \
@@ -41,14 +41,15 @@
     with_items: "{{groups.apache}}"
 
 #4. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de mise à jour de la baseune seule fois    
-#  - name: "wordpress db update"
-#    become: yes
-#    become_user: "root"
-#    command:
-#            php update.php --quick
-#    args:
-#            chdir: "{{wordpress_maintenance_directory}}"
-#            # La mise à jour à besoin d'être lancée une seule fois
-            #run_once: yes
-            #register: resultat
-            # changed_when: "' ...done.' in resultat.stdout"
+  - name: "wordpress db update"
+    become: yes
+    become_user: "root"
+    args:
+            chdir: "{{wordpress_maintenance_directory}}"
+    command:
+            php update.php --quick
+
+            # La mise à jour à besoin d'être lancée une seule fois
+    run_once: yes
+    register: resultat
+    changed_when: "' ...done.' in resultat.stdout"
