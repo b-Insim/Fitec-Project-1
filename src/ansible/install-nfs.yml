@@ -1,6 +1,5 @@
 ---
 - name: "Installation nfs_server"
   hosts: "nfsserver"
-  gather_facts: no
   roles:
     - role: NFS
