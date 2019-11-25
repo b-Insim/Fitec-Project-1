@@ -6,7 +6,7 @@
         name: dnsmasq
       vars:
 
-- hosts: wordpress
+#- hosts: wordpress
   tasks:
     - name: Install Wordpress
       import_role:
