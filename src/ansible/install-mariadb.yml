@@ -1,6 +1,5 @@
 ---
 - name: "Installation MariaDB"
   hosts: "mariadb"
-  gather_facts: no
   roles:
     - role: mariadb
