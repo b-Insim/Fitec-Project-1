@@ -1,11 +1,11 @@
 server0 ansible_user=root
-server0 ansible_user=root
-server0 ansible_user=root
-server0 ansible_user=root
-server0 ansible_user=root
+server1 ansible_user=root
+server2 ansible_user=root
+server3 ansible_user=root
+server4 ansible_user=root
 [apache]
-server0
-server0
+server1
+server2
 
 [dns]
 server0
@@ -14,13 +14,11 @@ server0
 server0
 
 [wordpress]
-server0
-server0
+server1
+server2
 
 [mariadb]
-server0
+server3
 
 [nfsserver]
-server0
-
-
+server4

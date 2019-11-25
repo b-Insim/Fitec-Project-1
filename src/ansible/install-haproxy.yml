@@ -1,6 +1,6 @@
 ---
 - name: "Installation haproxy"
-  hosts: "server0"
+  hosts: "haproxy"
   gather_facts: no
   roles:
     - role: haproxy
