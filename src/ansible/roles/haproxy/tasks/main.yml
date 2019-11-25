@@ -18,6 +18,6 @@
 #3. Cette tâche active le service haproxy
 - name: "haproxy service activation"
   service:
-    name: haproxy
+    name: "haproxy"
     state: "started"
     enabled: yes
