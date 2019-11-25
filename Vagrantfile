@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   # 192.168.50.10
   # 192.168.50.20
   # 192.168.50.30
-  4.times do |idx|
+  5.times do |idx|
     config.vm.define "server#{idx}" do |machine|
       machine.vm.hostname = "server#{idx}"
       machine.vm.network "private_network", ip: "192.168.50.#{idx * 10 + 10}"
