@@ -6,4 +6,27 @@
         name: dnsmasq
       vars:
 
-
+- hosts: wordpress
+  tasks:
+    - name: Install Wordpress
+      import_role:
+        name: oefenweb.wordpress
+      vars:
+        wordpress_installs:
+          - name: devops.com
+            dbhost: server0
+            dbname: devops
+            dbuser: devops
+            path: /var/www/html/devops.com
+            url: devops.com
+            title: "Un wordpress pour les devops"
+            admin_email: admin@admin.adm
+            admin_password: admin123
+            themes:
+              - name: twentytwelve
+                activate: true
+            plugins: []
+            users: {}
+            options: []
+            queries: []
+          -

@@ -68,8 +68,8 @@ cat >> /etc/hosts <<MARK
 192.168.50.10       server0
 192.168.50.20       server1
 192.168.50.30       server2
-192.168.50.30       server3
-192.168.50.40       server4
+192.168.50.40       server3
+192.168.50.50       server4
 ## END PROVISION
 MARK
 
