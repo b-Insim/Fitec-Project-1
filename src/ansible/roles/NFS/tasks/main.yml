@@ -20,7 +20,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: reload nf
+  notify: reload nfs
 
 #3. Cette tâche active le service nfsserver
 - name: Ensure nfs is running.
