@@ -2,5 +2,5 @@
 ---
   - name: "apache restart"
     service:
-            name: "apache2"
+            name: "apache"
             state: "restarted"
