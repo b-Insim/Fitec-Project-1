@@ -20,8 +20,8 @@
 # configure mariadb
 
   - name: "Install server config file"
-  templates:
-    src: etc_my.cnf.d_server.cnf.j2
-    dest: "{{ mariadb_config_server }}"
+    template:
+      src: etc_my.cnf.d_server.cnf.j2
+      dest: "{{ mariadb_config_server }}"
   notify: restart mariadb
   tags: mariadb
