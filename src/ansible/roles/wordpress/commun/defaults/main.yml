@@ -37,5 +37,5 @@
 # MariaDB Server configuration
 #
 # {{ ansible_managed }}
-mariadb_server_cnf: {}
+mariadb_server_cnf: { }
 mariadb_config_server: "/etc/mysql/my.cnf"
