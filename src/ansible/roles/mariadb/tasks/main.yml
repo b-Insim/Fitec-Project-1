@@ -13,5 +13,5 @@
 - name: "start mariadb service"
   service:
     name:  "mariadb"
-    state: "started"
+    state: "restarted"
     enabled: yes
