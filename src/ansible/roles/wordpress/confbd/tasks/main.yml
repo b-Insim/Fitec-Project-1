@@ -23,5 +23,5 @@
     template:
       src: etc_my.cnf.d_server.cnf.j2
       dest: "{{ mariadb_config_server }}"
-  notify: restart mariadb
+      notify: restart mariadb
   tags: mariadb
