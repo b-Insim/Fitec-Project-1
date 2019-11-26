@@ -33,5 +33,9 @@
   haproxy_wordpress_user: "wordpress"
   haproxy_wordpress_group: "wordpress"
 
-
-
+# config mariadb
+# MariaDB Server configuration
+#
+# {{ ansible_managed }}
+mariadb_server_cnf: {}
+mariadb_config_server: "/etc/my.cnf.d/server.cnf"

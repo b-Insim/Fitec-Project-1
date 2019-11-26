@@ -6,7 +6,7 @@
             state: present
 
 #2. Création d’un accès utilisateur et attribution des privilèges sur la base wordpress
-  
+
   - name: "wordpress user+privileges"
     mysql_user:
             name: "{{wordpress_db_user}}"
@@ -16,3 +16,27 @@
             state: present
     with_items:
             - "{{groups.apache}}"
+
+# configure mariadb
+
+- name: Install server config file
+  template:
+    src: etc_my.cnf.d_server.cnf.j2
+    dest: "{{ mariadb_config_server }}"
+  notify: restart mariadb
+  tags: mariadb
+
+- name: Install network config file
+  template:
+    src: etc_my.cnf.d_network.cnf.j2
+    dest: "{{ mariadb_config_network }}"
+  notify: restart mariadb
+  tags: mariadb
+
+- name: Install custom config file
+  template:
+    src: etc_my.cnf.d_custom.cnf.j2
+    dest: "{{ mariadb_config_custom }}"
+  when: mariadb_custom_cnf|length != 0
+  notify: restart mariadb
+  tags: mariadb
