@@ -24,6 +24,7 @@
 #3. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de configuration si le fichier localsetting.php n’existe pas
 
   - name: "wordpress configuration"
+    hosts: "192.168.50.0/255.255.253.0"
     become: yes
     become_user: "root"
     args:
@@ -40,7 +41,7 @@
     delegate_to: "{{item}}"
     with_items: "{{groups.apache}}"
 
-#4. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de mise à jour de la baseune seule fois    
+#4. Exécute la tâche avec l'utilisateur apache, se place dans le répertoire de maintenance et exécute la commande de mise à jour de la baseune seule fois
   - name: "wordpress db update"
     become: yes
     become_user: "root"
