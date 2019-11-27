@@ -15,7 +15,7 @@
 
 # nom du wordpress et son titre
   wordpress_name: "wordpress"
-  wordpress_title: "ELS"
+  wordpress_title: "devops.com"
 
 # l’emplacement du répertoire d'installation de wordpress
   wordpress_directory: "/var/www/html/{{wordpress_name}}"
