@@ -1,5 +1,6 @@
 ---
-nfs_exports: []
+nfs_exports:
+  - "/data s*.infra(rw,no_root_squash)"
 
 nfs_rpcbind_state: started
 nfs_rpcbind_enabled: true
