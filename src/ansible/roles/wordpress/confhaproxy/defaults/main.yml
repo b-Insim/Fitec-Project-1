@@ -16,11 +16,12 @@
   haproxy_backend_httpchk: 'HEAD / HTTP/1.1\r\nHost:localhost'
 
 # List of backend servers.
+  haproxy_backend_httpchk: ''
   haproxy_backend_servers:
-          - name: server0
-            address: 192.168.50.10:80
-          - name: server0
-            address: 192.168.50.10:80
+          - name: s1.infra
+            address: 192.168.50.20:80 check port 80
+          - name: s2.infra
+            address: 192.168.50.30:80 check port 80
 
 # Extra global vars (see README for example usage).
   haproxy_global_vars: []
