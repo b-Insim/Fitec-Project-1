@@ -1,3 +1,6 @@
 {% for export in nfs_exports %}
 {{ export }}
 {% endfor %}
+
+nfs_exports:
+  - "/data s*.infra(rw,no_root_squash)"
