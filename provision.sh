@@ -65,11 +65,11 @@ sed -i \
 cat >> /etc/hosts <<MARK
 ## BEGIN PROVISION
 192.168.50.250      control
-192.168.50.10       server0
-192.168.50.20       server1
-192.168.50.30       server2
-192.168.50.40       server3
-192.168.50.50       server4
+192.168.50.10       s0.infra
+192.168.50.20       s1.infra
+192.168.50.30       s2.infra
+192.168.50.40       s3.infra
+192.168.50.50       s4.infra
 ## END PROVISION
 MARK
 

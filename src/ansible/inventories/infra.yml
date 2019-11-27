@@ -1,24 +1,25 @@
-server0 ansible_user=root
-server1 ansible_user=root
-server2 ansible_user=root
-server3 ansible_user=root
-server4 ansible_user=root
+s0.infra ansible_user=root
+s1.infra ansible_user=root
+s2.infra ansible_user=root
+s3.infra ansible_user=root
+s4.infra ansible_user=root
+
 [apache]
-server1
-server2
+s1.infra
+s2.infra
 
 [dns]
-server0
+s0.infra
 
 [haproxy]
-server0
+s0.infra
 
 [wordpress]
-server1
-server2
+s1.infra
+s2.infra
 
 [mariadb]
-server3
+s3.infra
 
 [nfsserver]
-server4
+s4.infra
