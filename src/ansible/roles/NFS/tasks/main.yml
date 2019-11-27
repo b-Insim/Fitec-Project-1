@@ -22,10 +22,10 @@
     mode: 0644
   notify: reload nfs
 
-#3. Cette tâche active le service nfsserver
-#- name: "Ensure nfsserver is running"
-#  service
-#    name: "nfs-kernel-server"
-#    state: "started"
-#    enabled: "yes"
-#  when: nfs_exports|length
+3. Cette tâche active le service nfsserver
+- name: "Ensure nfsserver is running"
+  service
+    name: "nfs-kernel-server"
+    state: "started"
+    enabled: "yes"
+  when: nfs_exports|length
