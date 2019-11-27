@@ -72,9 +72,9 @@ cat >> /etc/hosts <<MARK
 192.168.50.50       s4.infra
 
 ## For testing purpose only :)
-192.168.50.20       devops.com
-192.168.50.20       devsec.com
-192.168.50.20       devsecops.com 
+192.168.50.10       devops.com
+192.168.50.10       devsec.com
+192.168.50.10       devsecops.com 
 ## END PROVISION
 MARK
 
