@@ -20,9 +20,12 @@
     owner: root
     group: root
     mode: 0644
-  notify: reload nfsserver
+  notify: reload nfs
 
 #3. Cette tâche active le service nfsserver
 - name: "Ensure nfsserver is running"
-  service: "name={{ nfs }} state=started enabled=yes"
+  service:
+    name: "nfs-kernel-server"
+    state: "started"
+    enabled: "yes"
   when: nfs_exports|length
