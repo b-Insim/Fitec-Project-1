@@ -8,7 +8,7 @@
             group: "root"
             state: directory
 
-#2. Décompresse le fichier source archive wordpress et le formate sans extension
+#2. Décompresse Le fichier source archive wordpress et le formate sans extension
   - name: "uncompress wordpress archive"
     unarchive:
             src: "{{wordpress_archive_url}}"
