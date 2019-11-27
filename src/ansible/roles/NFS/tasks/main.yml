@@ -28,4 +28,4 @@
     name: "nfs-kernel-server"
     state: "started"
     enabled: "yes"
-  when: nfs_exports|length
+  #when: nfs_exports|length
