@@ -24,7 +24,7 @@
 
 3. Cette tâche active le service nfsserver
 
-- name: "Ensure nfsserver is running"
+  - name: "Ensure nfsserver is running"
   service:
     name: "nfs-kernel-server"
     state: "started"
