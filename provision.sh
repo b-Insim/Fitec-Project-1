@@ -70,6 +70,11 @@ cat >> /etc/hosts <<MARK
 192.168.50.30       s2.infra
 192.168.50.40       s3.infra
 192.168.50.50       s4.infra
+
+## For testing purpose only :)
+192.168.50.20       devops.com
+192.168.50.20       devsec.com
+192.168.50.20       devsecops.com 
 ## END PROVISION
 MARK
 
