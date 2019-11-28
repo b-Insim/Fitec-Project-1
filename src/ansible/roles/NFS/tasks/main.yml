@@ -22,7 +22,7 @@
     mode: 0644
   notify: reload nfs
 
-3. Cette tâche active le service nfsserver
+#3. Cette tâche active le service nfsserver
 
 #  - name: Ensure nfs is running.
 #  service: "name={{ nfs_server_daemon }} state=started enabled=yes"
